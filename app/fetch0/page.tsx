@@ -1,12 +1,12 @@
 import FetchNow from '@/components/FetchNow';
 import { Metadata } from 'next';
 
-const title = 'page1';
+const title = 'fetch0';
 export const metadata: Metadata = {
   title
 };
 
-export default function Home() {
+export default async function Page() {
   return (
     <main className="mx-4 my-3">
       <h1>{title}</h1>
