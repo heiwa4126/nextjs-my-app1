@@ -3,6 +3,7 @@ import './globals.css';
 const noto = Noto_Sans_JP({ subsets: ['latin'], weight: '400' });
 
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: '(no title)',
@@ -13,6 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${noto.className} prose`} data-theme="light">
+        <nav className="mx-4 mt-2">
+          <Link href="/">home</Link> | <Link href="/page0">page0</Link> | <Link href="/page1">page1</Link>
+        </nav>
         {children}
       </body>
     </html>

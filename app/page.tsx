@@ -1,5 +1,5 @@
-import { Metadata } from 'next';
 import Counter from '@/components/Counter';
+import { Metadata } from 'next';
 
 const title = 'Hello Next.js!';
 export const metadata: Metadata = {
