@@ -1,3 +1,11 @@
+# nextjs-my-app1
+
+```bash
+pnpx create-next-app@latest --no-src-dir --import-alias '@/*' --ts --tailwind --eslint --app --use-pnpm my-app1
+```
+
+で始めた nextjs + daisyui のプロジェクト。 app dir。
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
