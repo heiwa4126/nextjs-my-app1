@@ -2,24 +2,31 @@
 // swrをクライアントコンポーネントとして使うサンプル
 import useSWR, { mutate } from 'swr';
 
-type Now = {
+type Response = {
   now: string;
 };
 
-const fetcher: (input: RequestInfo, init?: RequestInit) => Promise<Now> = (...args) =>
-  fetch(...args).then((res) => {
-    // throw new Error('TEST ERROR');
-    if (!res.ok) {
-      throw new Error(`Failed to fetch data (${res.status} ${res.statusText})`);
+type FetcherArg = [
+  RequestInfo | URL // fetch()'s URL
+  // no payload
+];
+
+async function fetcher(args: FetcherArg): Promise<Response> {
+  const [fetchInput] = args;
+  const options: RequestInit = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json' // responseはJSONのみ受け入れ
     }
-    return res.json();
-  });
+  };
+  return (await fetch(fetchInput, options)).json();
+}
 
 export function FetchNow() {
   const key = '/api/now';
-  const { data, error, isLoading } = useSWR<Now>(key, fetcher);
+  const { data, error, isLoading } = useSWR<Response>([key], fetcher);
   const handler = () => {
-    mutate(key);
+    mutate([key]);
   };
 
   if (error) return <div>failed to load. {error?.message}</div>;
