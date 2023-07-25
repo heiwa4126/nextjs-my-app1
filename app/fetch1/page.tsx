@@ -11,7 +11,9 @@ type Now = {
   now: string;
 };
 
-const key = 'http://localhost:3000/api/now';
+const key = undefined;
+// const key = 'http://localhost:3000/api/now';
+
 const options: RequestInit = {
   method: 'POST',
   headers: {
@@ -30,7 +32,8 @@ async function getData(): Promise<Now> {
 }
 
 export default async function Page() {
-  const data = await getData();
+  // const data = await getData();
+  const data = { now: 'dummy' };
   return (
     <main className="mx-4 my-3">
       <h1>{title}</h1>
@@ -44,6 +47,7 @@ export default async function Page() {
         現在時刻: <div>{data.now}</div>
       </div>
       <p>SSRなんで「更新」ボタンはありません。</p>
+      <p>キャッシュのテストで、10秒は同じ時間になります。</p>
     </main>
   );
 }

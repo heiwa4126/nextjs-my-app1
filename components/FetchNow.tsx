@@ -2,6 +2,8 @@
 // swrをクライアントコンポーネントとして使うサンプル
 import useSWR, { mutate } from 'swr';
 
+const api = '/api/now';
+
 type Response = {
   now: string;
 };
@@ -23,10 +25,10 @@ async function fetcher(args: FetcherArg): Promise<Response> {
 }
 
 export function FetchNow() {
-  const key = '/api/now';
-  const { data, error, isLoading } = useSWR<Response>([key], fetcher);
+  const key = [api];
+  const { data, error, isLoading } = useSWR<Response>(key, fetcher);
   const handler = () => {
-    mutate([key]);
+    mutate(key);
   };
 
   if (error) return <div>failed to load. {error?.message}</div>;
