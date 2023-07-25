@@ -7,6 +7,9 @@ const api = '/api/now';
 type Response = {
   now: string;
 };
+type ErrorResponse = {
+  datail: string;
+};
 
 type FetcherArg = [
   RequestInfo | URL // fetch()'s URL
@@ -21,7 +24,12 @@ async function fetcher(args: FetcherArg): Promise<Response> {
       accept: 'application/json' // responseはJSONのみ受け入れ
     }
   };
-  return (await fetch(fetchInput, options)).json();
+  const res = await fetch(fetchInput, options);
+  if (!res.ok) {
+    throw new Error(await res.text());
+  }
+
+  return res.json();
 }
 
 export function FetchNow() {
@@ -31,8 +39,8 @@ export function FetchNow() {
     mutate(key);
   };
 
-  if (error) return <div>failed to load. {error?.message}</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (error) return <div className="bg-error">failed to load. {error?.message}</div>;
+  if (isLoading) return <div className="loading loading-spinner loading-xs">loading...</div>;
 
   // render data
   return (

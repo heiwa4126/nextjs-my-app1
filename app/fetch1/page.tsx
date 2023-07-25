@@ -11,8 +11,7 @@ type Now = {
   now: string;
 };
 
-const key = undefined;
-// const key = 'http://localhost:3000/api/now';
+const api = 'http://localhost:3000/api/now';
 
 const options: RequestInit = {
   method: 'POST',
@@ -23,7 +22,7 @@ const options: RequestInit = {
 };
 
 async function getData(): Promise<Now> {
-  const res = await fetch(key, options);
+  const res = await fetch(api, options);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
@@ -31,9 +30,9 @@ async function getData(): Promise<Now> {
   return res.json();
 }
 
-export default async function Page() {
-  // const data = await getData();
-  const data = { now: 'dummy' };
+export default async function Page({}) {
+  const data = await getData();
+  // const data = { now: 'dummy' };
   return (
     <main className="mx-4 my-3">
       <h1>{title}</h1>
@@ -46,8 +45,10 @@ export default async function Page() {
       <div>
         現在時刻: <div>{data.now}</div>
       </div>
-      <p>SSRなんで「更新」ボタンはありません。</p>
-      <p>キャッシュのテストで、10秒は同じ時間になります。</p>
+      <p>
+        <div>* SSRなんで「更新」ボタンはありません。</div>
+        <div>* キャッシュのテストで、10秒は同じ時間が表示されます。</div>
+      </p>
     </main>
   );
 }
