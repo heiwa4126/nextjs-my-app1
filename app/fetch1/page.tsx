@@ -1,5 +1,7 @@
+import Loading from '@/components/Loading';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 const title = 'fetch1';
 
@@ -21,18 +23,23 @@ const options: RequestInit = {
   next: { revalidate: 10 } // cache test
 };
 
-async function getData(): Promise<Now> {
-  const res = await fetch(api, options);
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
+async function MySrvComponent() {
+  let res: Response;
+  try {
+    res = await fetch(api, options);
+  } catch (error) {
+    return <span className="bg-error">{(error as Error).message}</span>;
   }
-  return res.json();
+
+  if (!res.ok) {
+    return <span className="bg-error">{await res.text()}</span>;
+  }
+
+  const data: Now = await res.json();
+  return <>{data.now}</>;
 }
 
-export default async function Page({}) {
-  const data = await getData();
-  // const data = { now: 'dummy' };
+export default async function Page() {
   return (
     <main className="mx-4 my-3">
       <h1>{title}</h1>
@@ -42,13 +49,16 @@ export default async function Page({}) {
           Data Fetching: Fetching | Next.js
         </Link>
       </p>
-      <div>
-        現在時刻: <div>{data.now}</div>
-      </div>
       <p>
-        <div>* SSRなんで「更新」ボタンはありません。</div>
-        <div>* キャッシュのテストで、10秒は同じ時間が表示されます。</div>
+        現在時刻:{' '}
+        <Suspense fallback={<Loading />}>
+          <MySrvComponent />
+        </Suspense>
       </p>
+      <ul className="m-0">
+        <li className="m-0">SSRなんで「更新」ボタンはありません。</li>
+        <li className="m-0">キャッシュのテストで、10秒間は同じ時間が表示されます。</li>
+      </ul>
     </main>
   );
 }

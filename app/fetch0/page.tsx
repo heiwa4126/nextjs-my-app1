@@ -12,8 +12,7 @@ export default async function Page() {
       <h1>{title}</h1>
       <p>SWRをクライアントコンポーネントとして使うサンプル (Reactと同じ)</p>
       <div>
-        現在時刻:
-        <FetchNow />
+        現在時刻: <FetchNow />
       </div>
       <p>これと同じことを React Server Components (RSC) っぽくやってみる</p>
     </main>
