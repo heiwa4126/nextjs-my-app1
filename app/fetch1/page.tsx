@@ -1,4 +1,5 @@
 import Loading from '@/components/Loading';
+import { APP_URL } from '@/lib/global';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
@@ -13,7 +14,7 @@ type Now = {
   now: string;
 };
 
-const api = 'http://localhost:3000/api/now';
+const api = `${APP_URL}/api/now`;
 
 const options: RequestInit = {
   method: 'POST',
