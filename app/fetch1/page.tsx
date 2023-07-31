@@ -15,14 +15,15 @@ type Now = {
   now: string;
 };
 
-const api = `${NEXT_BASEURL}/api/now`;
+// const api = `${NEXT_BASEURL}/api/now`;
+const api = 'http://localhost:3000/myapp1/api/now';
 
 const options: RequestInit = {
   method: 'POST',
   headers: {
     accept: 'application/json' // responseはJSONのみ受け入れ
   },
-  next: { revalidate: 10 } // cache test
+  next: { revalidate: 5 } // cache test
 };
 
 async function MySrvComponent() {
@@ -45,7 +46,7 @@ export default async function Page() {
   return (
     <main className="mx-4 my-3">
       <h1>{title}</h1>
-      <p>NEXT_BASEURL: {NEXT_BASEURL}</p>
+      <p>api: {api}</p>
       <p>
         このへん参照:{' '}
         <Link href="https://nextjs.org/docs/app/building-your-application/data-fetching/fetching">
@@ -60,7 +61,7 @@ export default async function Page() {
       </p>
       <ul className="m-0">
         <li className="m-0">SSRなんで「更新」ボタンはありません。</li>
-        <li className="m-0">キャッシュのテストで、10秒間は同じ時間が表示されます。</li>
+        <li className="m-0">キャッシュのテストで、5秒間は同じ時間が表示されます。</li>
       </ul>
     </main>
   );
