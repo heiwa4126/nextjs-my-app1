@@ -1,7 +1,6 @@
 import Loading from '@/components/Loading';
-import { NEXT_BASEURL } from '@/lib/global';
+import { NEXT_SELFURL } from '@/lib/global';
 import { Metadata } from 'next';
-import { NEXT_URL } from 'next/dist/client/components/app-router-headers';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -15,8 +14,7 @@ type Now = {
   now: string;
 };
 
-// const api = `${NEXT_BASEURL}/api/now`;
-const api = 'http://localhost:3000/myapp1/api/now';
+const api = `${NEXT_SELFURL}/api/now`;
 
 const options: RequestInit = {
   method: 'POST',

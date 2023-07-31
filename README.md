@@ -1,42 +1,21 @@
 # nextjs-my-app1
 
 ```bash
-pnpx create-next-app@latest --no-src-dir --import-alias '@/*' --ts --tailwind --eslint --app --use-pnpm my-app1
+pnpx create-next-app@latest my-app1 --no-src-dir --import-alias '@/*' --ts --tailwind --eslint --app --use-pnpm
 ```
 
-で始めた nextjs + daisyui のプロジェクト。 app dir。
+で始めた nextjs + daisyui のプロジェクト。 app route。
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## self-hosting してみる
 
-## Getting Started
+- basePathは `myapp1`
+- http://locahost:3000 で動かす (つまり http://locahost:3000/myapp1 になる)
+- Nginx の背後に置く
 
-First, run the development server:
+`.env*` で設定している環境変数メモ
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- `NEXT_BASEPATH` - next.config.jsの basePathに渡る。デフォルトは``(空文字列)
+- `NEXT_SELFURL` - セルフホストするホスト上でのURL。デフォルト`http://locahost:3000/` 。自前でホストするAPIへのURLの一部になる。
+- `NEXT_BASEURL` - 外からのURL。`NEXT_SELFURL`+`NEXT_BASEPATH`が外から見えるNext.jsのエントリポイント。デフォルトは`NEXT_SELFURL`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+これらは next.config.jsのnextConfigのenv経由で lib/global.ts に渡る。`lib/global.ts`中のJSDoc参照
