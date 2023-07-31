@@ -1,4 +1,4 @@
-import FetchNow from '@/components/FetchNow';
+import FetchNow, { api as FetchNowApi } from '@/components/FetchNow';
 import { Metadata } from 'next';
 
 const title = 'fetch0';
@@ -11,6 +11,7 @@ export default async function Page() {
     <main className="mx-4 my-3">
       <h1>{title}</h1>
       <p>SWRをクライアントコンポーネントとして使うサンプル (Reactと同じ)</p>
+      <p>API: {FetchNowApi}</p>
       <div>
         現在時刻: <FetchNow />
       </div>

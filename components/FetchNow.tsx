@@ -4,7 +4,7 @@ import Loading from '@/components/Loading';
 import { NEXT_BASEURL } from '@/lib/global';
 import useSWR, { mutate } from 'swr';
 
-const api = `${NEXT_BASEURL}/api/now`;
+export const api = `${NEXT_BASEURL}/api/now`;
 
 type Response = {
   now: string;

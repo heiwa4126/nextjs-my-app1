@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 
 const basePath = process.env.NEXT_BASEPATH ?? '';
-const selfUrl0 = process.env.NEXT_SELFURL ?? 'http://localhost:3000' + basePath;
-const selfUrl = selfUrl + basePath;
-const baseUrl = (process.env.NEXT_BASEURL ?? selfUrl0) + basePath;
+const rawSelfUrl = process.env.NEXT_SELFURL ?? 'http://localhost:3000';
+const selfUrl = rawSelfUrl + basePath;
+const baseUrl = (process.env.NEXT_BASEURL ?? rawSelfUrl) + basePath;
 
 const nextConfig = {
   basePath,
   env: {
-    basePath, // 別名
+    basePath,
     selfUrl,
     baseUrl
   }
