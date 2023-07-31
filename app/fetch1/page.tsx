@@ -1,6 +1,7 @@
 import Loading from '@/components/Loading';
-import { APP_URL } from '@/lib/global';
+import { NEXT_BASEURL } from '@/lib/global';
 import { Metadata } from 'next';
+import { NEXT_URL } from 'next/dist/client/components/app-router-headers';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -14,7 +15,7 @@ type Now = {
   now: string;
 };
 
-const api = `${APP_URL}/api/now`;
+const api = `${NEXT_BASEURL}/api/now`;
 
 const options: RequestInit = {
   method: 'POST',
@@ -44,6 +45,7 @@ export default async function Page() {
   return (
     <main className="mx-4 my-3">
       <h1>{title}</h1>
+      <p>NEXT_BASEURL: {NEXT_BASEURL}</p>
       <p>
         このへん参照:{' '}
         <Link href="https://nextjs.org/docs/app/building-your-application/data-fetching/fetching">
