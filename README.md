@@ -19,3 +19,15 @@ pnpx create-next-app@latest my-app1 --no-src-dir --import-alias '@/*' --ts --tai
 - `NEXT_BASEURL` - 外からのURL。`NEXT_SELFURL`+`NEXT_BASEPATH`が外から見えるNext.jsのエントリポイント。デフォルトは`NEXT_SELFURL`
 
 これらは next.config.jsのnextConfigのenv経由で lib/global.ts に渡る。`lib/global.ts`中のJSDoc参照
+
+### nginxの設定 (部分)
+
+```config
+  location /myapp1 {
+    proxy_pass http://localhost:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+```
+
+下2つは不要かも
