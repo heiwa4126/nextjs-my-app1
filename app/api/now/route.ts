@@ -8,6 +8,6 @@ function sleep(ms: number): Promise<void> {
 export async function POST() {
   // return NextResponse.json({ detail: 'Item not found' }, { status: 422 }); // error test
   // return NextResponse.json('Very Bad Request', { status: 500 }); // error test2
-  await sleep(2000); // slow API emulation
+  await sleep(1000); // slow API emulation
   return NextResponse.json({ now: getCurrentTimeInRFC3339() });
 }
