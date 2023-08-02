@@ -11,7 +11,8 @@ const nextConfig = {
     basePath,
     selfUrl,
     baseUrl
-  }
+  },
+  output: 'standalone'
 };
 
 module.exports = nextConfig;
