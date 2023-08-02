@@ -58,3 +58,11 @@ sudo systemctl daemon-reload
 sudo systemctl enable myapp1 --now
 systemctl status myapp1
 ```
+
+## Docker
+
+- [Building Your Application: Deploying | Next.js](https://nextjs.org/docs/pages/building-your-application/deploying#docker-image)
+- [next.js/examples/with-docker at canary · vercel/next.js](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
+- [next.js/examples/with-docker/Dockerfile at canary · vercel/next.js](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)
+
+Dockerfileは[これそのまま使えば](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)動くのでは?

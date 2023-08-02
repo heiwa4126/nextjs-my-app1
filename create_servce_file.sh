@@ -12,6 +12,7 @@ Group=$(id -g)
 Restart=on-failure
 RestartSec=10
 WorkingDirectory=$(pwd -P)
+Environment="NODE_ENV=production"
 # ExecStartPre=/usr/bin/pnpm install
 # ExecStartPre=/usr/bin/pnpm run build
 ExecStart=/usr/bin/pnpm next start
