@@ -66,3 +66,21 @@ systemctl status myapp1
 - [next.js/examples/with-docker/Dockerfile at canary · vercel/next.js](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)
 
 Dockerfileは[これそのまま使えば](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)動くのでは?
+
+↑そんなに甘くなかった。
+
+まず standaloneモードにする([参照](https://nextjs.org/docs/app/api-reference/next-config-js/output#automatically-copying-traced-files))。
+これは必須ではないけど、
+
+- 利点 - サイズがうんと小さくなる。
+- 欠点 - `npm run start` で動かなくなる。
+- 欠点 - `.next/static/`と`public`をコピーする必要がある (Dockerfile中に記述あり)
+
+で、
+
+```bash
+docker build . --tag myapp1:test1
+docker run -d --rm -p 3000:3000 myapp1:test1
+```
+
+すれば、とりあえず動く。`npm run build`の時にoutputモードをオプションで指定できるといいのだけど。
