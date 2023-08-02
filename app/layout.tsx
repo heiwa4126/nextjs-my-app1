@@ -1,6 +1,6 @@
 import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
-const noto = Noto_Sans_JP({ subsets: ['latin'], weight: '400' });
+const noto = Noto_Sans_JP({ subsets: ['latin'], weight: '500' });
 
 import type { Metadata } from 'next';
 import Link from 'next/link';

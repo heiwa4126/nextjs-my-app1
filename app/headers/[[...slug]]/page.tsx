@@ -20,10 +20,11 @@ export default async function Page({ params, searchParams }: PageProps) {
     <main className="mx-4 my-3">
       <h1>{title}</h1>
       <p>
-        See:{' '}
+        PHPっぽい何か。
         <Link href="https://nextjs.org/docs/app/api-reference/file-conventions/page">
           File Conventions: page.js | Next.js
-        </Link>
+        </Link>{' '}
+        参照
       </p>
       <ul>
         {links.map((link: string) => {
