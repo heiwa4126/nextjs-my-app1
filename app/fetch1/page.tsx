@@ -1,5 +1,5 @@
 import Loading from '@/components/Loading';
-import { NEXT_SELFURL } from '@/lib/global';
+import { selfUrl } from '@/lib/global';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
@@ -14,7 +14,7 @@ type Now = {
   now: string;
 };
 
-const api = `${NEXT_SELFURL}/api/now`;
+const api = `${selfUrl}/api/now`;
 
 const options: RequestInit = {
   method: 'POST',
@@ -42,9 +42,10 @@ async function MySrvComponent() {
 
 export default async function Page() {
   return (
-    <main className="mx-4 my-3">
+    <main>
       <h1>{title}</h1>
       <p>api: {api}</p>
+
       <p>
         このへん参照:{' '}
         <Link href="https://nextjs.org/docs/app/building-your-application/data-fetching/fetching">

@@ -83,4 +83,10 @@ docker build . --tag myapp1:test1
 docker run -d --rm -p 3000:3000 myapp1:test1
 ```
 
-すれば、とりあえず動く。`npm run build`の時にoutputモードをオプションで指定できるといいのだけど。
+すれば、とりあえず動く。
+
+`npm run build`の時にoutputモードをオプションで指定できるといいのだけど。環境変数つかえば出来るな。
+
+### output: standaloneでは `next start` が使えない
+
+開発環境では

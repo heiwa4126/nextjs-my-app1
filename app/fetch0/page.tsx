@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <main className="mx-4 my-3">
+    <main>
       <h1>{title}</h1>
       <p>SWRをクライアントコンポーネントとして使うサンプル (Reactと同じ)</p>
       <p>API: {FetchNowApi}</p>

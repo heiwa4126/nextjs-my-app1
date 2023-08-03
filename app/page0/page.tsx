@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <main className="mx-4 my-3">
+    <main>
       <h1>{title}</h1>
       <p>空のページ。テンプレート用。</p>
     </main>

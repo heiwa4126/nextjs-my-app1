@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <main className="mx-4 my-3">
+    <main>
       <h1>{title}</h1>
       <p>
         Lorem ipsum dolor sit, amet <strong>consectetur</strong> adipisicing elit. Necessitatibus quis quam sunt eos

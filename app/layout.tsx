@@ -15,8 +15,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body className={`${noto.className} prose max-w-none lg:text-lg xl:text-xl`} data-theme="light">
         <nav className="mx-4 mt-2">
-          <Link href="/">home</Link> | <Link href="/page0">page0</Link> | <Link href="/fetch0">fetch0</Link> |{' '}
-          <Link href="/fetch1">fetch1</Link> | <Link href="/headers">headers</Link>
+          <Link href="/">home</Link>
+          <Link href="/page0">page0</Link>
+          <Link href="/fetch0">fetch0</Link>
+          <Link href="/fetch1">fetch1</Link>
+          <Link href="/headers">headers</Link>
         </nav>
         {children}
       </body>
