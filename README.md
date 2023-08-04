@@ -4,7 +4,7 @@
 pnpx create-next-app@latest my-app1 --no-src-dir --import-alias '@/*' --ts --tailwind --eslint --app --use-pnpm
 ```
 
-で始めた nextjs + daisyui のプロジェクト。 app route。
+で始めた Next.js v13 + daisyui のプロジェクト。app route。これをセルフホスティングする練習。
 
 ## self-hosting してみる
 
@@ -115,3 +115,9 @@ docker run -d --rm -p 3000:3000 myapp1:test1
 - [Next.jsのv13でnext/imageにstyle propが追加されたので消えたプロパティの代替を考える - エキサイト TechBlog.](https://tech.excite.co.jp/entry/2022/12/23/001520)
 
 そうはいっても全部.webpにしてくれるのはカッコいいので、我慢して使う。
+
+## TODO
+
+- 非Dockerでoutput: standaloneの時の手順(Dockerfileと同じことをやればいいはず)。
+- Dockerで再起動時にコンテナが自動で上がる手順(Next.jsと関係ない)
+- `NEXT_TELEMETRY_DISABLED=1` で[テレメトリー](https://nextjs.org/telemetry)を無効にするやつ。standaloneだとbuild時と実行時に要るような気がする。.envに書いとけばいい?
