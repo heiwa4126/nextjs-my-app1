@@ -88,6 +88,7 @@ docker run -d --rm -p 3000:3000 myapp1:test1
 すれば、とりあえず動く。
 
 `npm run build`の時にoutputモードをオプションで指定できるといいのだけど。環境変数つかえば出来るな。
+
 ⇒ 改造した。 NEXTCONFIG_OUTPUTで制御できるようにした([next.config.js](next.config.js)参照)。
 
 あと
@@ -96,7 +97,21 @@ docker run -d --rm -p 3000:3000 myapp1:test1
 
 が出る。[Error: Cannot find module 'next/dist/compiled/jest-worker' - On Docker · Issue #48173 · vercel/next.js](https://github.com/vercel/next.js/issues/48173) に従って `pnpm i -D jest-worker` したけど、納得できない。
 
+⇒ `-D(--save-dev)` じゃダメだった。`pnpm i jest-worker`
+
 ### output: standaloneでは `next start` が使えない
 
 開発環境では普通に `build & start` が使えてほしいので
 ([next.config.js](next.config.js)を改造した。
+
+### next/image はめんどくさい
+
+- layoutがv13のやつだと非推奨(使えないわけではない)。[\`next/image\` changed in version 13 | Next.js](https://nextjs.org/docs/messages/next-image-upgrade-to-13)
+- basePathを見てくれない。[参考](https://nextjs.org/docs/app/api-reference/next-config-js/basePath#images)
+- あと `pnpm i sharp`
+
+このへん参考にした。
+
+- [Next.jsのv13でnext/imageにstyle propが追加されたので消えたプロパティの代替を考える - エキサイト TechBlog.](https://tech.excite.co.jp/entry/2022/12/23/001520)
+
+そうはいっても全部.webpにしてくれるのはカッコいいので、我慢して使う。
