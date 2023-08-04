@@ -1,10 +1,11 @@
 'use client';
 // swrをクライアントコンポーネントとして使うサンプル
 import Loading from '@/components/Loading';
-import { baseUrl } from '@/lib/global';
+import { basePath } from '@/lib/global';
 import useSWR, { mutate } from 'swr';
 
-export const api = `${baseUrl}/api/now`;
+// export const api = `${baseUrl}/api/now`;
+export const api = `${basePath}/api/now`;
 
 type Response = {
   now: string;
