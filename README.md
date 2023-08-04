@@ -99,6 +99,8 @@ docker run -d --rm -p 3000:3000 myapp1:test1
 
 ⇒ `-D(--save-dev)` じゃダメだった。`pnpm i jest-worker`
 
+⇒ そうでもなかった。devDependenciesにもどして、buildに--no-cacheつけた。package.jsonのdependenciesが変わったら、一回no-cacheする必要がある?
+
 ### output: standaloneでは `next start` が使えない
 
 開発環境では普通に `build & start` が使えてほしいので
