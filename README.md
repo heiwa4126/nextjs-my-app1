@@ -116,9 +116,25 @@ docker run -d --rm -p 3000:3000 myapp1:test1
 
 そうはいっても全部.webpにしてくれるのはカッコいいので、我慢して使う。
 
+### docker compose 追加した
+
+```sh
+docker compose up -d
+```
+
+で。ホストマシンを再起動してもコンテナは立ち上がる(`docker run --restart always` 相当)
+
+停止は
+
+```sh
+docker compose down
+```
+
+で。
+
 ## TODO
 
 - 非Dockerでoutput: standaloneの時の手順(Dockerfileと同じことをやればいいはず)。
-- Dockerで再起動時にコンテナが自動で上がる手順 (Next.jsと関係ない)
-- docker-compose.yml も書く (Next.jsと関係ない)
+- ~~Dockerで再起動時にコンテナが自動で上がる手順 (Next.jsと関係ない)~~
+- ~~docker-compose.yml も書く (Next.jsと関係ない)~~
 - `NEXT_TELEMETRY_DISABLED=1` で[テレメトリー](https://nextjs.org/telemetry)を無効にするやつ。standaloneだとbuild時と実行時に要るような気がする。.envに書いとけばいい?
