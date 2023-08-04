@@ -15,8 +15,8 @@ function Imr({ src, alt }: { src: string; alt: string }) {
   return (
     <Image
       src={`${basePath}/images/${src}`}
-      width={0}
-      height={0}
+      width={100}
+      height={100}
       alt={alt}
       sizes="100vw"
       style={{
