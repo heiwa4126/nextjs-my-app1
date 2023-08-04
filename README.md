@@ -88,7 +88,15 @@ docker run -d --rm -p 3000:3000 myapp1:test1
 すれば、とりあえず動く。
 
 `npm run build`の時にoutputモードをオプションで指定できるといいのだけど。環境変数つかえば出来るな。
+⇒ 改造した。 NEXTCONFIG_OUTPUTで制御できるようにした([next.config.js](next.config.js)参照)。
+
+あと
+
+> Error: Cannot find module 'next/dist/compiled/jest-worker'
+
+が出る。[Error: Cannot find module 'next/dist/compiled/jest-worker' - On Docker · Issue #48173 · vercel/next.js](https://github.com/vercel/next.js/issues/48173) に従って `pnpm i -D jest-worker` したけど、納得できない。
 
 ### output: standaloneでは `next start` が使えない
 
-開発環境では
+開発環境では普通に `build & start` が使えてほしいので
+([next.config.js](next.config.js)を改造した。

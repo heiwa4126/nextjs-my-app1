@@ -10,6 +10,8 @@ const nextConfig = {
   basePath,
   output: process.env.NEXTCONFIG_OUTPUT,
   env: {
+    // なんかヤだけど、next.config.jsがcjsなのでこうやってごまかすのが楽
+    basePath,
     selfUrl: rawSelfUrl + basePath,
     baseUrl: (process.env.NEXT_BASEURL ?? rawSelfUrl) + basePath
   }

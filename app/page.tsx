@@ -1,4 +1,5 @@
 import Counter from '@/components/Counter';
+import { basePath } from '@/lib/global';
 import { Metadata } from 'next';
 
 const title = 'Hello Next.js!';
@@ -10,6 +11,7 @@ export default async function Home() {
   return (
     <main>
       <h1>{title}</h1>
+      <p>basePath: {basePath}</p>
       <p>
         Lorem ipsum dolor sit, amet <strong>consectetur</strong> adipisicing elit. Necessitatibus quis quam sunt eos
         cumque, illum repudiandae modi ipsa nostrum quaerat facere maiores maxime aliquam deserunt voluptatibus placeat

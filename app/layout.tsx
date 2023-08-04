@@ -20,6 +20,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Link href="/fetch0">fetch0</Link>
           <Link href="/fetch1">fetch1</Link>
           <Link href="/headers">headers</Link>
+          <Link href="/images">next/image</Link>
         </nav>
         {children}
       </body>
