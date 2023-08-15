@@ -6,6 +6,7 @@ export const basePath = process.env.basePath;
 export const selfUrl = process.env.selfUrl;
 
 /** 環境変数 `NEXT_BASEURL`+`NEXTCONFIG_BASEPATH` NEXT_BASEURLのデフォルト値は NEXT_SELFURL 。
-セルフホストしているAPIに対してreact client componentからアクセスするのに使う。
+セルフホストしているAPIに対してreact client component からアクセスするのに使う。
+ただ、swrなどではスキーマ://ホスト:ポート部分は省略できるので、明示して使うことは少なそう。
  */
 export const baseUrl = process.env.baseUrl;

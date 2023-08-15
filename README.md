@@ -21,7 +21,6 @@ nginxはTSLでつながることを確認済みだとする。
 
 - `NEXTCONFIG_BASEPATH` - [next.config.jsの basePath](https://nextjs.org/docs/pages/api-reference/next-config-js/basePath)。デフォルトは``(空文字列)
 - `NEXTCONFIG_OUTPUT` - [next.config.js の output](https://nextjs.org/docs/pages/api-reference/next-config-js/output)。デフォルトは undefined
-
 - `NEXT_SELFURL` - セルフホストするホスト上でのURL。デフォルト `http://locahost:3000` 。自前でホストするAPIへのURLの一部になる。
 - `NEXT_BASEURL` - 外からのURL。`NEXT_SELFURL`+`NEXT_BASEPATH`が外から見えるNext.jsのエントリポイント。デフォルトは`NEXT_SELFURL`
 
