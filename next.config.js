@@ -9,6 +9,9 @@ const rawSelfUrl = process.env.NEXT_SELFURL ?? "http://localhost:3000";
 const nextConfig = {
 	basePath,
 	output: process.env.NEXTCONFIG_OUTPUT,
+	turbopack: {
+		root: __dirname,
+	},
 	env: {
 		// なんかヤだけど、next.config.jsがcjsなのでこうやってごまかすのが楽
 		basePath,

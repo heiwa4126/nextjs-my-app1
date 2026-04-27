@@ -28,6 +28,7 @@
 		"typescript": "6.0.3"
 	},
 	"devDependencies": {
+		"@tailwindcss/postcss": "^4.2.4",
 		"@tailwindcss/typography": "^0.5.19",
 		"daisyui": "^5.5.19",
 		"jest-worker": "^30.3.0"
