@@ -1,15 +1,15 @@
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
-const title = 'page0';
+const title = "page0";
 export const metadata: Metadata = {
-  title
+	title,
 };
 
 export default async function Page() {
-  return (
-    <main>
-      <h1>{title}</h1>
-      <p>空のページ。テンプレート用。</p>
-    </main>
-  );
+	return (
+		<main>
+			<h1>{title}</h1>
+			<p>空のページ。テンプレート用。</p>
+		</main>
+	);
 }

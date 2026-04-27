@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 main {
-  @apply mx-4 my-3;
+	@apply mx-4 my-3;
 }
 
 nav a + a::before {
-  content: '|';
-  padding: 0 0.3rem;
+	content: "|";
+	padding: 0 0.3rem;
 }
