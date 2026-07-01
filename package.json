@@ -19,7 +19,7 @@
 		"eslint": "10.4.0",
 		"eslint-config-next": "16.2.6",
 		"next": "16.2.6",
-		"postcss": "8.5.15",
+		"postcss": "8.5.16",
 		"react": "19.2.6",
 		"react-dom": "19.2.6",
 		"sharp": "^0.34.5",
